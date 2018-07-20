@@ -48,7 +48,7 @@ def main():
 			URL += payload['payload']
 			cookies = dict()
 		elif payload['location'] == 'cookie':
-			cookies = dict(payload_cookie = payload['payload']
+			cookies = dict(payload_cookie = payload['payload'])
 		r = requests.get(URL, cookies = cookies, verify = False, timeout = timeout)
 		print r.status_code, payload['name']
 		time.sleep(random.choice(sleep))
